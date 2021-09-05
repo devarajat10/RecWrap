@@ -1,0 +1,3 @@
+include ':RecWrapper'
+include ':app'
+rootProject.name = "RecWrap"
