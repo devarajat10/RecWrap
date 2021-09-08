@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recwrap.adapter.SampleAdapter
 import com.example.recwrap.databinding.ActivityMainBinding
 import com.example.recwrap.model.PeopleModel
+import com.example.recwrap.model.TeamsModel
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         ) as ActivityMainBinding
 
         val arrayList = getData()
+        val arrayList2 = getData2()
         // Layout Manager
         mDataBinding.recylerview.layoutManager = LinearLayoutManager(
             this,
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Adapter
-        mDataBinding.recylerview.adapter = SampleAdapter(this, arrayList)
+        mDataBinding.recylerview.adapter = SampleAdapter(this, arrayList,arrayList2)
 
 
     }
@@ -41,6 +44,17 @@ class MainActivity : AppCompatActivity() {
         arrayList.add(PeopleModel("Hazard", "Real madrid"))
         arrayList.add(PeopleModel("Haaland", "Dortmund"))
         arrayList.add(PeopleModel("Griezmann", "Atlético madrid"))
+
+        return arrayList
+    }
+
+    private fun getData2(): ArrayList<TeamsModel> {
+        val arrayList: ArrayList<TeamsModel> = ArrayList()
+        arrayList.add(TeamsModel("England", "Man U"))
+        arrayList.add(TeamsModel("France", "PSG"))
+        arrayList.add(TeamsModel("Spain ", "Real madrid"))
+        arrayList.add(TeamsModel("Germany", "Dortmund"))
+        arrayList.add(TeamsModel("Spain", "Atlético madrid"))
 
         return arrayList
     }

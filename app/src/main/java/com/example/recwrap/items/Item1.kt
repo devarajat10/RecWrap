@@ -9,6 +9,7 @@ import com.example.recwrap.R
 import com.example.recwrap.databinding.ListitemMainBinding
 import com.example.recwrapper.IRecAdapter
 import com.example.recwrapper.ItemInflater
+import java.util.*
 
 
 class Item1(recAdapter: IRecAdapter, var arrayList: ArrayList<PeopleModel>) :

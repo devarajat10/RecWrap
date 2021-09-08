@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.example.recwrap.model.PeopleModel" />
+            type="com.example.recwrap.model.TeamsModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,7 +27,7 @@
                 android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{item.name}"
+                android:text="@{item.country}"
                 android:textSize="22sp" />
 
             <TextView

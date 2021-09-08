@@ -24,9 +24,9 @@ abstract class RecAdapter : IRecAdapter() {
 
     override fun getPosition(itemInflater: ItemInflater, itemPosition: Int): Int {
         val viewType = mItemList.indexOf(itemInflater)
-        check(viewType >= 0) { "item does not exist in adapter" }
+        if(viewType >= 0) { print("item does not exist in adapter") }
         var position = itemPosition
-        for (i in 0 until viewType) {
+        for (i in 0 .. viewType) {
             position += mItemList[i].itemCount
         }
         return position
@@ -47,6 +47,21 @@ abstract class RecAdapter : IRecAdapter() {
         }
         return position
     }
+
+    override fun getItemViewType(position: Int): Int {
+        var itemCount = 0
+        var viewType = 0
+        val size = mItemList.size
+        while (viewType < size) {
+            itemCount += mItemList[viewType].itemCount
+            if (position < itemCount) {
+                return viewType
+            }
+            viewType++
+        }
+        throw IllegalArgumentException("arg position is invalid")
+    }
+
 
     override fun notifyItemRangeChanged(
         itemInflater: ItemInflater,
